@@ -35,6 +35,10 @@ Deephaven Docker Compose Examples
     ```sh
     docker-compose down
     ```
+    To destroy all containers, and remove the volumes associated with it, add the `-v` flag:
+    ```sh
+    docker-compose down -v
+    ```
 
 ### Tips and tricks
 
