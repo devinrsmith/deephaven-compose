@@ -23,11 +23,13 @@ Deephaven Docker Compose Examples
     ```sh
     docker-compose logs -f
     ```
+    Control-c to exit.
 
 * Follow the logs of a specific container:
     ```sh
     docker-compose logs -f grpc-api
     ```
+    Control-c to exit.
 
 * Destroy all containers:
     ```sh
