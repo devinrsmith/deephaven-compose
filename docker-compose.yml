@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  grpc-api:
+    image: ghcr.io/devinrsmith/grpc-api
+    expose:
+      - '8080'
+    tmpfs:
+      - /cache
+      - /tmp
+    volumes:
+      - data:/data
+
+  web:
+    image: ghcr.io/devinrsmith/web
+    expose:
+      - '80'
+    tmpfs:
+      - /tmp
+
+  grpc-proxy:
+    image: ghcr.io/devinrsmith/grpc-proxy
+    environment:
+      - BACKEND_ADDR=grpc-api:8080
+    depends_on:
+      - grpc-api
+    expose:
+      - '8080'
+    tmpfs:
+      - /tmp
+
+  envoy:
+    image: ghcr.io/devinrsmith/envoy
+    depends_on:
+      - web
+      - grpc-proxy
+      - grpc-api
+    ports:
+      - "${PORT:-10000}:10000"
+    tmpfs:
+      - /tmp
+
+volumes:
+    data:
