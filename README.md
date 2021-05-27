@@ -2,6 +2,7 @@
 Deephaven Docker Compose Examples
 
 ### Workflow
+* Copy the [docker-compose.yml](docker-compose.yml) to a local directory; or download and unzip [main.zip](https://github.com/devinrsmith/deephaven-compose/archive/refs/heads/main.zip); or clone the repository; and navigate to the same directory.
 
 * Download the latest images:
     ```sh
