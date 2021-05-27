@@ -47,7 +47,7 @@ Deephaven Docker Compose Examples
 
 ### Tips and tricks
 
-* Project name:
+* **Project name**:
     Add `-p <project-name>` to your docker-compose commands to give your project a more meaningful name. For example:
     ```sh
     docker-compose -p my-first-project up -d
@@ -58,21 +58,21 @@ Deephaven Docker Compose Examples
     docker-compose up -d
     ```
 
-* Port:
+* **Port**:
     Set the `PORT` environment variable to select a different port. For example:
     ```sh
     export PORT=10001
     docker-compose up -d
     ```
 
-* Multiple projects:
+* **Multiple projects**:
     Set a project name and port to spin up multiple projects at the same time:
     ```sh
     PORT=10001 docker-compose -p foo-project up -d
     PORT=10002 docker-compose -p bar-project up -d
     ```
 
-* Set a specific version:
+* **Set a specific version**:
     Set the `VERSION` environment variable to select a different docker tag. For example:
     ```sh
     export VERSION=0.0.2
