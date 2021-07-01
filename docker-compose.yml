@@ -5,18 +5,17 @@ services:
     image: ghcr.io/deephaven/grpc-api:${VERSION:-latest}
     expose:
       - '8080'
-    tmpfs:
-      - /cache
-      - /tmp
     volumes:
       - data:/data
+      - api-cache:/cache
 
   web:
     image: ghcr.io/deephaven/web:${VERSION:-latest}
     expose:
       - '80'
-    tmpfs:
-      - /tmp
+    volumes:
+      - data:/data
+      - web-tmp:/tmp
 
   grpc-proxy:
     image: ghcr.io/deephaven/grpc-proxy:${VERSION:-latest}
@@ -26,8 +25,6 @@ services:
       - grpc-api
     expose:
       - '8080'
-    tmpfs:
-      - /tmp
 
   envoy:
     image: ghcr.io/deephaven/envoy:${VERSION:-latest}
@@ -37,8 +34,9 @@ services:
       - grpc-api
     ports:
       - "${PORT:-10000}:10000"
-    tmpfs:
-      - /tmp
 
 volumes:
     data:
+    web-tmp:
+    api-cache:
+      

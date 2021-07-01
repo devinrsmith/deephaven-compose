@@ -75,6 +75,6 @@ Deephaven Docker Compose Examples
 * **Set a specific version**:
     Set the `VERSION` environment variable to select a different docker tag. For example:
     ```sh
-    export VERSION=0.0.2
+    export VERSION=0.2.0
     docker-compose up -d
     ```
